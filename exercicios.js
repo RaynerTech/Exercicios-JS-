@@ -1,0 +1,430 @@
+//Simples, remova os espaços da string e retorne a string resultante.
+//
+//esta função devera ser usada 
+//function noSpace(x){
+//
+//}
+
+
+function noSpace(x){
+    return x.replace(/ /g, "");
+}
+
+console.log(noSpace('vamos ver '))
+
+
+//O objetivo deste kata é escrever uma função que receba duas entradas: uma string e um caractere. A 
+//função contará o número de vezes que esse caractere aparece na string. A contagem não diferencia maiúsculas de minúsculas
+
+//For example:
+//
+//countChar("fizzbuzz","z") => 4
+//countChar("Fancy fifth fly aloof","f") => 5
+//The character can be any alphanumeric character.
+
+function countChar(string, char) {
+    var contador = 0;
+    for (var i = 0; i < string.length; i++) {
+      if (string[i].toLowerCase() === char.toLowerCase()) {
+        contador++;
+      }
+    }
+    return contador;
+  }
+  
+  console.log(countChar("fizzbuzz","z")); 
+  console.log(countChar("Fancy fifth fly aloof","f")); 
+
+
+ // Ei programador incrível! Você tem muitos dados para gerenciar e, claro, usa IDs com base zero e não negativos para tornar cada item de dados único! Portanto, 
+ // você precisa de um método que retorne o menor ID não utilizado para seu próximo novo item de dados... Observação: a matriz fornecida de IDs usados ​​pode não ser classificada. 
+ // Por motivos de teste, pode haver IDs duplicados, mas você não precisa encontrá-los ou removê-los! Vá em frente e codifique alguma grandiosidade pura!
+
+ function nextId(ids){
+    for(i=0;i<=ids.length;i++){
+      if(!ids.includes(i)){
+        return i
+      }
+    }
+  }
+  
+  console.log(nextId([0,1,2,3,5]))
+
+
+
+  //Dado um inteiro como entrada, você pode arredondar para o próximo múltiplo (ou seja, "maior") de 5?
+  //exemplo:  input:    output:
+//0    ->   0
+//2    ->   5
+//3    ->   5
+//12   ->   15
+//21   ->   25
+//30   ->   30
+//-2   ->   0
+//-5   ->   -5
+//etc.
+
+
+function roundToNext5(n){
+    return Math.ceil(n/5)*5;
+  }
+
+
+//Você leva seu filho para a floresta para ver os macacos. Você sabe que há um certo número lá (n),
+//mas seu filho é muito novo para apenas apreciar o número inteiro, ele tem que começar a contá-los a partir de 1.
+//Como um bom pai, você vai sentar e contar com ele. Dado o número (n), preencha uma matriz com todos os números até e incluindo esse 
+//número, mas excluindo zero. Por exemplo:
+//For example(Input --> Output):
+//
+//10 --> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+//1 --> [1]
+
+function monkeyCount(n) {
+  var newArray = [];
+  for (var i = 1; i <= n; i++) {
+      newArray.push(i);
+  }
+  return newArray;
+}
+
+
+
+//Escreva um método que obterá um array inteiro como parâmetro e processará todos os números 
+//desse array. Retorne um novo array com o processamento de cada número do array de entrada assim:
+//Example
+//[4,3,9,7,2,1] -> [2,9,3,49,4,1]
+
+
+
+
+function squareOrSquareRoot(array) {
+  var result = [];
+  for (var i = 0; i < array.length; i++) {
+    if (Math.sqrt(array[i]) % 1 === 0) {
+      result.push(Math.sqrt(array[i]));
+    } else {
+      result.push(array[i] * array[i]);
+    }
+  }
+  return result;
+}
+
+
+
+//A medida stanton de uma matriz é calculada da seguinte forma: conte o número de 1s na matriz. Que esta contagem seja n. A medida de Stanton é o número de vezes que n aparece na matriz.
+//
+//Escreva uma função que pegue uma matriz de inteiros e retorne sua medida stanton.
+//
+//Exemplos
+//A medida de Stanton de [1, 4, 3, 2, 1, 2, 3, 2] é 3, porque 1 ocorre 2 vezes na matriz e 2 ocorre 3 vezes.
+//A medida de Stanton de [1, 4, 1, 2, 11, 2, 3, 1] é 1, porque 1 ocorre 3 vezes na matriz e 3 ocorre 1 vez.
+
+
+function stantonMeasure(array){
+
+  const Count = array.filter(a => a === 1).length
+  const repetindoNumber = array.filter(a => a === Count).length
+  return repetindoNumber
+}
+
+console.log(stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2]))
+console.log(stantonMeasure([1, 4, 1, 2, 11, 2, 3, 1]))
+console.log(stantonMeasure([1, 1, 1, 2, 2, 2, 3]))
+console.log(stantonMeasure([1, 1, 1, 1, 2, 2, 3, 3]))
+
+
+//É bem direto. Seu objetivo é criar uma função que remova o primeiro e o último caractere de uma string. Você recebe um parâmetro, a string original. 
+//Você não precisa se preocupar com strings com menos de dois caracteres.
+
+
+function removeChar(str) {
+  return str.slice(1, -1)
+}
+
+console.log(removeChar('eloquent'), 'loquen')
+
+
+//Complete a solução para que ela inverta a string passada para ela.
+//
+//Exemplo
+//'world'  =>  'dlrow'
+//'word'   =>  'drow'
+
+
+function solution(str){
+  return str.split('').reverse().join('');
+}
+
+console.log((solution('world'), 'dlrow'))
+console.log((solution('hello'), 'olleh'))
+
+
+//Precisamos de uma função que possa transformar um número em uma corda.
+//Que maneiras de conseguir isso você sabe?
+//Exemplos:
+//123 --> "123"
+//999 --> "999"
+
+function numberToString(num) {
+  // Return a string of the number here!
+  return num.toString();
+}
+console.log(numberToString(123));
+
+//Questão
+//Parece que um encanador de bandidos e seu irmão tem andado por aí e danificando seus palcos de novo.
+//Os tubos que conectam os estágios do seu nível juntos precisam ser corrigidos antes de receber mais reclamações.
+//A lista de tubos está correta quando cada tubo após o primeiro índice é maior (+1) do que o anterior, e que não há duplicatas.
+//Tarefa
+//Dada a lista de números, devolva uma lista fixa para que os valores aumentem em 1 para cada índice a partir do valor mínimo
+//até o valor máximo (ambos incluídos).
+//Exemplo
+//Entrada: 1,3,5,6,7,8 Saída: 1,2,3,4,5,6,7,8
+
+function pipeFix(numbers){
+  let min = Math.min(...numbers)
+  let max = Math.max(...numbers)
+  let result = []
+  for(let i = min; i <= max; i++){
+    result.push(i)
+  }
+  return result
+}
+
+console.log(pipeFix([1,2,3,5,6,8,9]),[1,2,3,4,5,6,7,8,9]);
+console.log(pipeFix([1,2,3,12]),[1,2,3,4,5,6,7,8,9,10,11,12]);
+console.log(pipeFix([6,9]),[6,7,8,9]);
+
+
+//Vamos construir um sistema de matchmaking que ajude a descobrir empregos para desenvolvedores com base em vários fatores. Um dos fatores mais simples, porém mais importantes, é a compensação. 
+//Como desenvolvedores, sabemos quanto dinheiro precisamos para sustentar nosso estilo de vida, então geralmente temos uma ideia aproximada do salário mínimo com o qual ficaríamos satisfeitos. Vamos tentar isso. 
+//Criaremos uma função matchque recebe a candidatee a job, que retornará um booleano indicando se o trabalho é uma correspondência válida para o candidato.
+
+//Um canditado terá um salário mínimo
+//
+// let candidate = {
+//minSalary: 120000
+//}
+//Copiar para àrea de transferência
+//Um serviço terá um pagamento máximo
+//
+// let job = {
+//maxSalary: 140000
+//}
+//Copiar para àrea de transferência
+//Se o salário mínimo do candidato ou o salário máximo do trabalho não estiver presente, lance um erro. Para uma correspondência válida, o salário mínimo do 
+//candidato deve ser menor ou igual ao salário máximo do cargo. No entanto, vamos incluir também 10% de espaço de manobra (deduzido do salário mínimo do candidato) 
+//caso o candidato seja um rockstar que goste de programar no Codewars em seu tempo livre. A empresa que oferece o trabalho pode ser capaz de resolver algo.
+
+
+//const match = (candidate, job ) => {  solução legal 
+//  console.log(candidate.minSalary, job.maxSalary);
+//  
+//  if(!candidate.minSalary  || !job.maxSalary) {
+//    throw new Error(123);
+//  }
+//  
+//  
+//   return  candidate.minSalary - candidate.minSalary/10 <= job.maxSalary 
+//  }
+//  
+
+function match(candidate, job) {
+
+  if (!candidate.minSalary || !job.maxSalary) throw "Error"
+  return candidate.minSalary * .9 <= job.maxSalary
+}
+
+
+//Você se deparou com o prazer divino que é possuir um cachorro e um jardim. Agora é hora de pegar todos os cr@p! :D
+//Dada uma matriz 2D para representar seu jardim, você deve encontrar e coletar todos os cães cr@p - representados por '@'.
+//Você também receberá o número de malas às quais você tem acesso (bolsas) e a capacidade de uma mala (cap). Se não houver malas, você não pode pegar nada, então pode ignorar o cap.
+//Você precisa descobrir se tem capacidade suficiente para coletar todo o cr@p e deixar seu jardim limpo novamente.
+//Se você fizer isso, retorne 'Clean', caso contrário, retorne 'Cr@p'.
+//Cuidado, porém - se o seu cão está lá fora ('D'), ele fica muito sensível ao ser observado. Se ele estiver lá, você precisa retornar 'Dog!!'.Você se deparou com o prazer divino que é possuir um cachorro e um jardim. Agora é hora de pegar todos os cr@p! :D
+//Dada uma matriz 2D para representar seu jardim, você deve encontrar e coletar todos os cães cr@p - representados por '@'.
+//Você também receberá o número de malas às quais você tem acesso (bolsas) e a capacidade de uma mala (cap). Se não houver malas, você não pode pegar nada, então pode ignorar o cap.
+//Você precisa descobrir se tem capacidade suficiente para coletar todo o cr@p e deixar seu jardim limpo novamente.
+//Se você fizer isso, retorne 'Clean', caso contrário, retorne 'Cr@p'.
+//Cuidado, porém - se o seu cão está lá fora ('D'), ele fica muito sensível ao ser observado. Se ele estiver lá, você precisa retornar 'Dog!!'.
+//Exemplo
+//let x=
+//[[_,_,_,_,_,_]
+//[_,_,_,_,@,_]
+//[@,_,_,_,_,_]]
+//bags = 2, cap = 2
+//return --> 'Clean'
+
+
+//function crap(x, bags, cap){   SOLUÇÃO DIFERENTE 
+//  var cont=0
+//  for(let i=0; i<x.length;i++){
+//    for(let j=0;j<x[i].length;j++){
+//      if(x[i][j]== '@'){
+//        cont++
+//      }else if(x[i][j]=='D'){
+//        return 'Dog!!'
+//      }
+//    }
+//  }
+//  if(cont<=bags * cap){
+//    return 'Clean'
+//  }else{
+//    return 'Cr@p'
+//  }
+//}
+//
+
+let x = [
+  ["_", "_", "_", "_", "_", "_"],
+  ["_", "_", "_", "_", "@", "_"],
+  ["@", "_", "_", "_", "_", "_"]
+]
+
+function crap(x, bags, cap) {
+  let totalDeCacas = 0;
+  for (let i = 0; i < x.length; i++) {
+      for (let j = 0; j < x.length; j++) {
+          if (x[i][j] === "@") {
+              totalDeCacas++;
+          }
+      }
+  }
+
+  if (totalDeCacas <= bags * cap) {
+      return "Clean";
+  } else {
+      return "Cr@p";
+  }
+
+}
+
+console.log(crap(x, 2, 2));
+
+
+//Dadas as representações de cordas de dois inteiros, retorne a representação de sequência da soma desses inteiros.
+//
+//Por exemplo:
+//
+//somastrings ('1','2') // => '3'
+//Uma representação de sequência de cordas de um inteiro não conterá caracteres além dos dez numerais "0" a "9".
+
+
+//function sumStrings(a, b) {
+//    let a1 = a.split("").map(a => Number(a)), b1 = b.split("").map(b => Number(b));
+//    let carry = 0;                                                                      OUTRA FORMA DE FAZER
+//    let answer = []
+//    for (let i = a1.length - 1, j = b1.length - 1; i >= 0 || j >= 0; i--, j--) {
+//        let sum = a1[i] + b1[j] + carry;
+//        if (sum < 10) {
+//            answer.push(sum);
+//            carry = 0;
+//        } else {
+//            answer.push(sum - 10);
+//            carry = 1;
+//        }
+//    }
+//    if (carry === 1) {
+//        answer.push(1);
+//    }
+//    return answer.reverse().join("");
+//}
+//
+//
+//console.log(sumStrings('123', '456'));
+//console.log(sumStrings('0', '0'));
+//console.log(sumStrings('712569312664357328695151392', '8100824045303269669937'));
+//console.log(sumStrings('50095301248058391139327916261', '81055900096023504197206408605'));
+
+
+
+function sumStrings(a,b) { 
+  let answer = [], a1 = a.split("").map(a => Number(a)), b1 = b.split("").map(b => Number(b))
+  let carregando = 0
+ for (let i = a1.length - 1, j = b1.length - 1; i >= 0 || j >= 0; i--, j--) {
+    let sum = a1[i] + b1[j] + carregando
+    if (sum < 10) {
+      answer.push(sum);
+        carregando = 0;
+    } else {
+         answer.push(sum - 10);
+         carregando = 1;
+      }
+ }
+  if (carregando === 1) {
+      answer.push(1);
+  }
+  return answer.reverse().join("");
+}
+
+console.log(sumStrings('123', '456'));
+console.log(sumStrings('0', '0'));
+console.log(sumStrings('712569312664357328695151392', '8100824045303269669937'));
+console.log(sumStrings('50095301248058391139327916261', '81055900096023504197206408605'));
+console.log(sumStrings('123', '456'));
+
+//Coverter Fahrenheit to Celsius
+
+function toCelsius(f) {
+  return (5/9) * (f-32);
+}
+console.log(toCelsius(100))
+
+
+
+function calc(numero1,numero2){
+  let result = numero1 * numero2
+  return result
+}
+
+console.log(calc(20,30))
+
+
+//Você está escrevendo um código para controlar os semáforos da sua cidade. Você precisa de uma função para lidar com cada alteração de green, para yellow, para rede depois para green novamente.
+//Complete a função que recebe uma string como argumento representando o estado atual da luz e retorna uma string representando o estado para o qual a luz deve mudar.
+//Por exemplo, update_light('green')deve retornar 'yellow'.
+//Nota: Use ""em vez de ''em C++.
+
+function updateLight(current) {
+  if(current === "green") {
+    return "yellow";
+  } else if(current === "yellow") {
+      return "red";
+  } else if(current === "red") {
+      return "green";
+  }
+}
+
+//Escreva uma função que aceite dois inteiros e retorne o restante da divisão do valor maior pelo valor menor. 
+//Divisão por zero deve retornar NaN
+//Examples:
+//n = 17
+//m = 5
+//result = 2 (remainder of `17 / 5`)
+//
+//n = 13
+//m = 72
+//result = 7 (remainder of `72 / 13`)
+//
+//n = 0
+//m = -1
+//result = 0 (remainder of `0 / -1`)
+//
+//n = 0
+//m = 1
+//result - division by zero (refer to the specifications on how to handle this in your language)
+
+function remainder(n, m){
+  // Divide the larger argument by the smaller argument and return the remainder
+  if(n>m){ 
+  return n%m
+  }
+  else{
+  return m%n
+  }
+}
+console.log(remainder(5,2))
+console.log(remainder(7,72))
+console.log(remainder(0,-1))
+console.log(remainder(0,1))
+
