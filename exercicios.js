@@ -428,3 +428,118 @@ console.log(remainder(7,72))
 console.log(remainder(0,-1))
 console.log(remainder(0,1))
 
+
+
+
+//Timmy e Sarah pensam que estão apaixonados, mas perto de onde moram, eles só saberão quando colherem uma flor cada. 
+//Se uma das flores tiver um número par de pétalas e a outra tiver um número ímpar de pétalas, significa que eles estão apaixonados. 
+//Escreva uma função que pegue o número de pétalas de cada flor e retorne true se elas estiverem apaixonadas e false se não estiverem.
+
+function lovefunc(flower1, flower2){
+  if (flower1 % 2 === 0 && flower2 % 2 === 1){
+    return true
+  } 
+  else if (flower1 % 2 === 1 && flower2 % 2 === 0){
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+console.log(lovefunc(1,4))
+console.log(lovefunc(0,0))
+
+
+
+//Escreva uma função que leve uma sequência de parênteses e determine se a ordem dos parênteses é válida. A função deve retornar se a sequência for válida e se for inválida.truefalse
+//
+//Exemplos
+//"()"              =>  true
+//")(()))"          =>  false
+//"("               =>  false
+//"(())((()())())"  =>  true
+//Restrições
+//0 <= input.length <= 100
+
+
+function validParentheses(parens) {
+  let n = 0
+  for (let i = 0; i < parens.length; i++) {
+    if (parens[i] == '(') n++
+    if (parens[i] == ')') n--
+    if (n < 0) return false
+  }
+ 
+  if (n == 0) return true
+  return false
+}
+
+
+
+
+
+
+//Fundo Sudoku
+//Sudoku é um jogo jogado em um grid 9x9. O objetivo do jogo é encher todas as células da grade com dígitos de 1 a 9, de modo que cada coluna, cada linha, e cada uma das nove sub-grades 3x3 (também conhecidas como blocos) contenham todos os dígitos de 1 a 9.
+//(Mais informações em: http://en.wikipedia.org/wiki/Sudoku)
+//
+//Validador de soluções Sudoku
+//Escreva uma função // que aceite uma matriz 2D representando uma placa Sudoku e retorne verdadeira se for uma solução válida ou falsa de outra forma. As células da placa sudoku também podem conter 0's, o que representará células vazias. Placas contendo um ou mais zeros são consideradas soluções inválidas.validSolutionValidateSolutionvalid_solution()
+//
+//A placa é sempre 9 células por 9 células, e cada célula contém apenas inteiros de 0 a 9.
+//
+//Exemplos
+//validSolution([
+//  [5, 3, 4, 6, 7, 8, 9, 1, 2],
+//  [6, 7, 2, 1, 9, 5, 3, 4, 8],
+//  [1, 9, 8, 3, 4, 2, 5, 6, 7],
+//  [8, 5, 9, 7, 6, 1, 4, 2, 3],
+//  [4, 2, 6, 8, 5, 3, 7, 9, 1],
+//  [7, 1, 3, 9, 2, 4, 8, 5, 6],
+//  [9, 6, 1, 5, 3, 7, 2, 8, 4],
+//  [2, 8, 7, 4, 1, 9, 6, 3, 5],
+//  [3, 4, 5, 2, 8, 6, 1, 7, 9]
+//]); // => true
+//validSolution([
+//  [5, 3, 4, 6, 7, 8, 9, 1, 2], 
+//  [6, 7, 2, 1, 9, 0, 3, 4, 8],
+//  [1, 0, 0, 3, 4, 2, 5, 6, 0],
+//  [8, 5, 9, 7, 6, 1, 0, 2, 0],
+//  [4, 2, 6, 8, 5, 3, 7, 9, 1],
+//  [7, 1, 3, 9, 2, 4, 8, 5, 6],
+//  [9, 0, 1, 5, 3, 7, 2, 1, 4],
+//  [2, 8, 7, 4, 1, 9, 6, 3, 5],
+//  [3, 0, 0, 4, 8, 1, 1, 7, 9]
+//]); // => false
+
+
+
+function validSolution(board){
+  for(let i = 0; i < board.length; i++){
+    let list = board[i].reduce(function(a,b){return a + b;})
+    if(list !== 45) return false;
+  }
+  for(let i = 0; i < board[0].length; i++){
+    var list = 0;
+    for(let j = 0; j < board.length; j++){
+      list += board[j][i];
+    }
+    if(list !== 45) return false;
+  }
+  for(let i = 0; i < board.length; i+=3){
+    for(let j = 0; j < board[0].length; j+=3){
+      let list = 0;
+      for(let k = 0; k < 3; k++) {
+        for(let l = 0; l < 3; l++) {
+          list += board[i+k][j+l];
+        }
+      }
+      if(list !== 45) return false;
+    }
+  }
+  return true;
+}
+
+
+
