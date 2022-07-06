@@ -542,4 +542,89 @@ function validSolution(board){
 }
 
 
+//Escreva uma função que leve uma sequência de aparelhos e determine se a ordem dos aparelhos é válida. Deve retornar verdadeiro se a sequência for válida, e falsa se for inválida.
+//
+//Este Kata é semelhante ao Valid Parheses Kata, mas introduz novos caracteres: suportes [], e chaves cacheadas {}. Graças a @arnedag pela ideia!
+//
+//Todas as cordas de entrada serão nonempty, e consistirão apenas de parênteses, suportes e chaves: ()[]{}./
+//O que é considerado Válido?
+//Uma sequência de aparelhos é considerada válida se todas as chaves forem combinadas com a cinta correta.
+//
+//Exemplos
+//"(){}[]" => True
+//"([{}]) = > True
+//"(}" => Falso
+//"[(])" => Falso
+//"[({})(](]" => Falso
+
+
+function validBraces(braces){
+  //TODO 
+  let arr = braces.split('');
+  let stack = [];
+  let map = {
+      '(' : ')',
+      '{' : '}',
+      '[' : ']'
+  }
+  let len = arr.length;
+  for(let i = 0; i < len; i++){
+      let item = arr[i];
+      if(item === '(' || item === '{' || item === '['){
+          stack.push(item);
+      }else{
+          let last = stack.pop();
+          if(item !== map[last]){
+              return false;
+          }
+      }
+  }
+  if(stack.length !== 0){
+      return false;
+  }
+  return true;
+}
+
+
+
+//Escreva uma função que leve uma sequência de aparelhos e determine se a ordem dos aparelhos é válida. Deve retornar verdadeiro se a sequência for válida, e falsa se for inválida.
+//Este Kata é semelhante ao Valid Parheses Kata, mas introduz novos caracteres: suportes [], e chaves cacheadas {}. Graças a @arnedag pela ideia!
+//Todas as cordas de entrada serão nonempty, e consistirão apenas de parênteses, suportes e chaves: ()[]{}.
+//O que é considerado Válido?
+//Uma sequência de aparelhos é considerada válida se todas as chaves forem combinadas com a cinta correta.
+//Exemplos
+//"(){}[]" => True
+//"([{}]) = > True
+//"(}" => Falso
+//"[(])" => Falso
+//"[({})(](]" => Falso
+
+function validBraces(braces){
+  //TODO 
+  let arr = braces.split('');
+  let stack = [];
+  let map = {
+      '(' : ')',
+      '{' : '}',
+      '[' : ']'
+  }
+  let len = arr.length;
+  for(let i = 0; i < len; i++){
+      let item = arr[i];
+      if(item === '(' || item === '{' || item === '['){
+          stack.push(item);
+      }else{
+          let last = stack.pop();
+          if(item !== map[last]){
+              return false;
+          }
+      }
+  }
+  if(stack.length !== 0){
+      return false;
+  }
+  return true;
+}
+
+
 
