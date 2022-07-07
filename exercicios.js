@@ -658,3 +658,65 @@ console.log(numeros(listNumeros))
 
 
 
+
+
+//Snail Sort
+//Dado um conjunto n x n, devolva os elementos de matriz dispostos desde elementos externos até o elemento do meio, viajando no sentido horário.
+//matriz = [[1,2,3],
+//         [4,5,6],
+//         [7,8,9]]
+//caracol (matriz) #=> [1,2,3,6,9,8,7,4,5]
+//Para melhor compreensão, siga os números da próxima matriz consecutivamente:
+//matriz = [[1,2,3],
+//         [8,9,4],
+//         [7,6,5]]
+//caracol (matriz) #=> [1,2,3,4,5,6,7,8,9]
+//Esta imagem ilustrará as coisas com mais clareza:
+
+snail = function(array) {
+  var result = [];
+  while(array.length) {
+      result = result.concat(array.shift());
+      for (var i = 0; i < array.length; i++) {
+          result.push(array[i].pop());
+      }
+      result = result.concat((array.pop() || []).reverse());
+      for (var i = array.length - 1; i >= 0; i--) {
+          result.push(array[i].shift());
+      }
+  }
+  return result;
+}
+
+
+//Philip acabou de fazer quatro anos e ele quer saber quantos anos ele terá em vários anos no futuro, como 2090 ou 3044. Os pais dele não conseguem 
+//continuar calculando isso, então imploraram para ajudá-los escrevendo um programa que possa responder às intermináveis perguntas de Philip.
+//Your task is to write a function that takes two parameters: the year of birth and the year to count years in relation to. As Philip is getting 
+//more curious every day he may soon want to know how many years 
+//it was until he would be born, so your function needs to work with both dates in the future and in the past.
+//Fornecer saída neste formato: Para datas no futuro: "Você é ... ano(s) de idade. Para datas no passado: "Você vai nascer em ... 
+//ano(s)." Se o ano de nascimento é igual ao ano solicitado de volta: "Você nasceu este mesmo ano!"
+//"..." devem ser substituídos pelo número, seguido e procedido por um único espaço. Lembre-se que você precisa prestar contas tanto por "ano" quanto por "anos", 
+//dependendo do resultado.
+//Boa sorte!
+
+
+
+function calculateAge(yearOfBirth, currentYear) {
+  const idade = currentYear - yearOfBirth;
+  return idade < 0
+    ? `You will be born in ${-idade} year${Math.abs(idade) === 1 ? "" : "s"}.`
+    : idade === 0
+    ? "You were born this very year!"
+    : `You are ${idade} year${idade === 1 ? "" : "s"} old.`;
+}
+
+
+
+
+
+
+
+
+
+
