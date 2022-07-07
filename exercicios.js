@@ -628,3 +628,33 @@ function validBraces(braces){
 
 
 
+
+let listNumeros = [10,12,13,15,20,22,28,29,31]
+
+function numeros(arr){
+  let par = []
+  let impares =[]
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i]%2 ==0){
+      par.push(arr[i])
+    }else
+    impares.push(arr[i])
+
+  }
+  if(par.length > impares.length){
+    return cont(par, true) 
+  }
+  return cont(impares, false)
+}
+
+function cont(valorcont, verifiction){
+  if(verifiction){
+    return `A minha lista é par e o tamanho é  ${valorcont.length}`
+  }
+ return `A minha lista é Impar e o seu tamanho ${valorcont.length}`
+}
+
+console.log(numeros(listNumeros))
+
+
+
