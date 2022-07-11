@@ -712,6 +712,52 @@ function calculateAge(yearOfBirth, currentYear) {
 }
 
 
+//Se listarmos todos os números naturais abaixo de 10 que são múltiplos de 3 ou 5, teremos 3, 5, 6 e 9. A soma desses múltiplos é 23.
+//Termine a solução para que ela devosse a soma de todos os múltiplos de 3 ou 5 abaixo do número passado. Além disso, se o número for negativo, retorne 0 (para idiomas que os possuem).
+//Nota: Se o número for um múltiplo de 3 e 5, conte-o apenas uma vez.
+function solution(number) {
+  var soma = 0;
+  for (let i = 0; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      soma += i;
+    }
+  }
+  return soma;
+}
+
+console.log(solution(10));
+
+//Você recebe uma matriz (que terá um comprimento de pelo menos 3, mas poderia ser muito grande) contendo inteiros. 
+//A matriz é inteiramente composta de inteiros estranhos ou inteiramente compostos por inteiros, exceto por um único inteiro. 
+//Escreva um método que tome a matriz como argumento e devore este "outlier".NN
+
+function findOutlier(integers){
+  let list = [];
+  var list2 = [];
+  for (let i = 0; i < integers.length; i++) 
+  {
+      if ((integers[i] % 2) == 0) 
+      {
+          list.push(integers[i]);
+      } else 
+      {
+          list2.push(integers[i]);
+      }
+  }
+  let n1 = list.length;
+  let n2 = list2.length;
+
+  if (n1> n2)
+  {
+      return list2[0];
+  } else 
+  {
+      return list[0];
+  }
+}
+
+
+
 
 
 
