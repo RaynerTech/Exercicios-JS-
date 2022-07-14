@@ -256,27 +256,25 @@ function match(candidate, job) {
 //return --> 'Clean'
 
 
-//function crap(x, bags, cap){   SOLUÇÃO DIFERENTE 
-//  var cont=0
-//  for(let i=0; i<x.length;i++){
-//    for(let j=0;j<x[i].length;j++){
-//      if(x[i][j]== '@'){
-//        cont++
-//      }else if(x[i][j]=='D'){
-//        return 'Dog!!'
-//      }
-//    }
-//  }
-//  if(cont<=bags * cap){
-//    return 'Clean'
-//  }else{
-//    return 'Cr@p'
-//  }
-//}
-//
+function crap(x, bags, cap){   SOLUÇÃO DIFERENTE 
+  var cont=0
+  for(let i=0; i<x.length;i++){
+    for(let j=0;j<x[i].length;j++){
+      if(x[i][j]== '@'){
+        cont++
+      }else if(x[i][j]=='D'){
+        return 'Dog!!'
+      }
+    }
+  }
+  if(cont<=bags * cap){
+    return 'Clean'
+  }else{
+    return 'Cr@p'
+  }
+}
 
-let x = [
-  ["_", "_", "_", "_", "_", "_"],
+let x = [["_", "_", "_", "_", "_", "_"],
   ["_", "_", "_", "_", "@", "_"],
   ["@", "_", "_", "_", "_", "_"]
 ]
