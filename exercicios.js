@@ -759,6 +759,82 @@ function findOutlier(integers){
 
 
 
+//Os números de Fibonacci são os números na seguinte sequência de inteiros (Fn):
+//
+//0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...
+//
+//como
+//
+//F(n) = F(n-1) + F(n-2) com F(0) = 0 e F(1) = 1.
+//
+//Dado um número, digamos prod (para produto), pesquisamos dois números fibonacci F(n) e F(n+1) verificando
+//
+//F(n) * F(n+1) = prod.
+//
+//Seu produto de funçãoFib pega um inteiro (prod) e retorna uma matriz:
+//
+//[F(n), F(n+1), true] or {F(n), F(n+1), 1} or (F(n), F(n+1), True)
+//dependendo do idioma se F(n) * F(n+1) = prod.
+//
+//Se você não encontrar dois F(n) consecutivos verificando você vai retornarF(n) * F(n+1) = prod
+//
+//[F(n), F(n+1), false] or {F(n), F(n+1), 0} or (F(n), F(n+1), False)
+//F(n) sendo o menor, como .F(n) * F(n+1) > prod
+//
+//Alguns exemplos de retorno:
+//(depende da linguagem)
+//
+//productFib(714) # should return (21, 34, true), 
+//                # since F(8) = 21, F(9) = 34 and 714 = 21 * 34
+//
+//productFib(800) # should return (34, 55, false), 
+//                # since F(8) = 21, F(9) = 34, F(10) = 55 and 21 * 34 < 800 < 34 * 55
+//-----
+//productFib(714) # should return [21, 34, true], 
+//productFib(800) # should return [34, 55, false], 
+//-----
+//productFib(714) # should return {21, 34, 1}, 
+//productFib(800) # should return {34, 55, 0},        
+//-----
+//productFib(714) # should return {21, 34, true}, 
+//productFib(800) # should return {34, 55, false}, 
+//Nota:
+//Você pode ver exemplos para o seu idioma em "Testes de Exemplo".
+
+
+function productFib(prod){
+  const cache = {
+    0: 0,
+    1: 1
+  }
+  
+  function fib(s){
+    if(s == 0 || s == 1){return s;}
+    if(s > 1){
+      if(cache[s]){
+        return cache[s];
+      }else{
+        cache[s] = fib(s - 1) + fib(s - 2)
+        return fib(s - 1) + fib(s - 2);
+      }
+    }
+  }
+  
+  let n = 0;
+  while(fib(n) * fib(n + 1) < prod){
+    n++;
+  }
+  if(fib(n) * fib(n + 1) == prod){
+    return [fib(n), fib(n + 1), true]
+  }else{
+    return [fib(n), fib(n + 1), false]
+  }
+}
+
+
+
+
+
 
 
 
