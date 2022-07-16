@@ -839,4 +839,3 @@ function productFib(prod){
 
 
 
-
