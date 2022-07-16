@@ -830,6 +830,26 @@ function productFib(prod){
 }
 
 
+//Se listarmos todos os números naturais abaixo de 10 que são múltiplos de 3 ou 5, teremos 3, 5, 6 e 9. A soma desses múltiplos é 23.
+//
+//Termine a solução para que ela devosse a soma de todos os múltiplos de 3 ou 5 abaixo do número passado. Além disso, se o número for negativo, retorne 0 (para idiomas que os possuem).
+//
+//Nota: Se o número for um múltiplo de 3 e 5, conte-o apenas uma vez.
+//
+//Cortesia de projecteuler.net (Problema 1)
+
+function solution(number) {
+  var soma = 0;
+  for (let i = 0; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      soma += i;
+    }
+  }
+  return soma;
+}
+
+console.log(solution(10));
+
 
 
 
